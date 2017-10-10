@@ -10,16 +10,43 @@ NEWSURLS = {
     'yahoonews':        'http://news.yahoo.com/rss/',
     'busineswire':      'http://www.businesswire.com/portal/site/home/rss/',
     'BBC business':     'feeds.bbci.co.uk/news/business/rss.xml',
-    'NYTimes business': 'http://rss.nytimes.com/services/xml/rss/nyt/Business.xml',
-    'Rueters business': 'http://feeds.reuters.com/reuters/businessNews',
-    'The Economist':    'http://www.economist.com/sections/business-finance/rss.xml',
-    'Marketwatch':      'http://feeds.marketwatch.com/marketwatch/topstories/'
+    'NYTimesbusiness': 'http://rss.nytimes.com/services/xml/rss/nyt/Business.xml',
+    'Ruetersbusiness': 'http://feeds.reuters.com/reuters/businessNews',
+
+    'TheEconomist':     'http://www.economist.com/sections/business-finance/rss.xml',#economist'
+    'TheEconomist':     'http://www.economist.com/sections/science-technology/rss.xml'
+
+    'Marketwatch':      'http://feeds.marketwatch.com/marketwatch/topstories/' #marketwatch
+    'MWmarketpulse':    'http://feeds.marketwatch.com/marketwatch/marketpulse/',
+    'MWstockstowatch':  'http://feeds.marketwatch.com/marketwatch/StockstoWatch/',
+    'MWinterenet':      'http://feeds.marketwatch.com/marketwatch/internet/',
+    'MWsoftware':       'http://feeds.marketwatch.com/marketwatch/software/',
+    'MWresearch':       'http://feeds.marketwatch.com/marketwatch/newslettersandresearch/',
+
+    'CNNmoney':         'http://rss.cnn.com/rss/money_latest.rss', #CNN
+    'CNNmoneytopstories': 'http://rss.cnn.com/rss/money_topstories.rss',
+    'CNNcompanies':     'http://rss.cnn.com/rss/money_news_companies.rss',
+    'CNNinternational': 'http://rss.cnn.com/rss/money_news_international.rss',
+    'CNNmarket':        'http://rss.cnn.com/rss/money_markets.rss',
+    'CNNtechnology':    'http://rss.cnn.com/rss/money_technology.rss',
+    'CNNautos':         'http://rss.cnn.com/rss/money_autos.rss',
+
+    'NASDAQ':           'http://articlefeeds.nasdaq.com/nasdaq/categories?category=Basics',#NASDAQ
+    'NASDAQcommodities':'http://articlefeeds.nasdaq.com/nasdaq/categories?category=Commodities',
+    'NASDAQinternational':'http://articlefeeds.nasdaq.com/nasdaq/categories?category=International',
+    'NASDAQbusiness':   'http://articlefeeds.nasdaq.com/nasdaq/categories?category=Business',
+    'NASDAQtechnology': 'http://articlefeeds.nasdaq.com/nasdaq/categories?category=Technology',
+    'NASDAQusmarket':   'http://articlefeeds.nasdaq.com/nasdaq/categories?category=US+Markets',
+
+
+
+
 }
 
-RSS = False
-GOOGLE = True
-
+RSS = True #change True/False for extraction.
+GOOGLE = False
 KEYWORD = input('Input keyword (all lowercase, please!): ')
+
 
 def exist(direc):
     if not os.path.exists(direc):
@@ -96,7 +123,7 @@ def extr_info(art_url):
 
 def extr_news(th_day, sv_day, day, th_month, sv_month, month, arts, typ):
     '''
-    Extracts news articles from given search source, and prints them to necessary directory.
+    Extracts news articles from given search source if it meets date requirements, and writes them to necessary directory.
     '''
 
     doc_count = 0
